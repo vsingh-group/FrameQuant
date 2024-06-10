@@ -1,0 +1,16 @@
+__pycache__
+build
+dist
+opt175b
+*.txt
+*.pt
+*egg-info*
+.idea/
+LICENSE
+*.png
+logs/
+*.zip
+results_llama/
+*.swp
+debug/
+results/
