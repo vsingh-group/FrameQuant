@@ -71,12 +71,12 @@ class GPTQ:
             H = H * (H.shape[0] / (torch.trace(H) + 1e-8)) + 1e-2 * torch.eye(H.shape[0], device=dev)
             #####################################
             # taking TFF projections
-            W = tff_project(W, self.quantizer.l_seed+1234, self.P_prev_T, dev)
-            W = tff_project(W.T, self.quantizer.l_seed+4321, None, dev)
+            W = tff_project(W, self.quantizer.l_seed*10000+1234, self.P_prev_T, dev)
+            W = tff_project(W.T, self.quantizer.l_seed*10000+4321, self.P_l_T, dev)
             W = W.T
 
-            H = tff_project(H, self.quantizer.l_seed+1234, self.P_prev_T, dev)
-            H = tff_project(H.T, self.quantizer.l_seed+1234, self.P_prev_T, dev)
+            H = tff_project(H, self.quantizer.l_seed*10000+1234, self.P_prev_T, dev)
+            H = tff_project(H.T, self.quantizer.l_seed*10000+1234, self.P_prev_T, dev)
             H = H.T
             #####################################
             self.rows = W.shape[0]
@@ -194,10 +194,11 @@ class GPTQ:
         if tff_transform:
             w = self.layer.weight.data.clone().to(torch.float32)
             P_prev_T = self.P_prev_T.to(w.device)
+            P_l_T = self.P_l_T.to(w.device)
             #################################################3
             # inverting TFF projections
-            w = inv_tff(w, self.quantizer.l_seed+1234, P_prev_T, dev)
-            w = inv_tff(w.T, self.quantizer.l_seed+4321, None, dev)
+            w = inv_tff(w, self.quantizer.l_seed*10000+1234, P_prev_T, dev)
+            w = inv_tff(w.T, self.quantizer.l_seed*10000+4321, P_l_T, dev)
             w = w.T
             #################################################3
             error = ((w-w_clone)**2).mean().sqrt()

@@ -17,7 +17,7 @@ bash install_fast_hadamard_tx.sh
 ### Docker image
 We also have a docker image with all the packages installed on the dockerhub. From within the FrameQuant directory, simply run
 ```
-docker run --ipc=host --gpus all -it -v "$PWD:/workspace" harshauwm163/fq:0.96
+docker run --ipc=host --gpus all -it -v "$PWD:/workspace" harshauwm163/fq:0.97
 ```
 to start using FrameQuant.
 

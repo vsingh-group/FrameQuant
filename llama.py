@@ -261,7 +261,7 @@ if __name__ == '__main__':
     )
 
     parser.add_argument(
-        '--l_den', type=int, default=16,
+        '--l_den', type=int, default=8,
         help='denominator to be used for L_tff'
     )
 
