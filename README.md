@@ -9,13 +9,13 @@ All our dependencies are provided in the `requirements.txt`. (We also have a doc
 ```
 pip install -r requirements.txt
 ```
-We use the Fast Hadamard Transform implementation from Dao-AILab for our fast random projections. Follow their instructions to install the package or run (from within the FrameQuant directory)
+We use the Fast Hadamard Transform implementation from Dao-AILab for our fast random projections. Follow their instructions to install the package or run 
 ```
 bash install_fast_hadamard_tx.sh
 ```
 
 ### Docker image
-We also have a docker image with all the packages installed on the dockerhub. From within the FrameQuant directory, simply run
+We also have a docker image on the dockerhub with all the packages installed. From within the FrameQuant directory, simply run
 ```
 docker run --ipc=host --gpus all -it -v "$PWD:/workspace" harshauwm163/fq:0.97
 ```
@@ -132,6 +132,12 @@ FrameQuant $1.1$ | $2.2$ | $\textbf{31.91}$ | $\textbf{65.53}$ | $\textbf{67.95}
 
 </details>
 
+## Quantized models on Huggingface
+Please find the quantized models available on Huggingface
+
+| model | bitwidth | link |
+| :--- | :--- | :--- |
+| Llama2-7B | 2 bits| https://huggingface.co/uw-madison/Llama2-7B-FrameQuant-2bit |
 
 ## Cite
 Please do cite our work, if you find it interesting!
