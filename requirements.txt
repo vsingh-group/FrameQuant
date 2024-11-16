@@ -1,0 +1,8 @@
+torch
+torchvision
+transformers==4.38.2
+sentencepiece
+datasets
+numpy
+tqdm
+ninja
